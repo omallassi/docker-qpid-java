@@ -1,0 +1,129 @@
+{
+  "id" : "232bbc1a-5734-4136-af70-37824efc91d7",
+  "name" : "${broker.name}",
+  "modelVersion" : "6.0",
+  "authenticationproviders" : [ {
+    "id" : "2e82d79e-4033-4043-89a2-5e88e485307f",
+    "name" : "anonymous",
+    "type" : "Anonymous",
+    "lastUpdatedBy" : "admin",
+    "lastUpdatedTime" : 1470414423502,
+    "createdBy" : "admin",
+    "createdTime" : 1470414423502
+  }, {
+    "id" : "e25de838-6fac-4c67-a2fb-2de65d03d4a5",
+    "name" : "passwordFile",
+    "type" : "PlainPasswordFile",
+    "path" : "${qpid.home_dir}${file.separator}etc${file.separator}passwd",
+    "preferencesproviders" : [ {
+      "id" : "083db0a8-47af-48ae-a9ce-e11a6d68783c",
+      "name" : "fileSystemPreferences",
+      "type" : "FileSystemPreferences",
+      "path" : "${qpid.work_dir}${file.separator}user.preferences.json"
+    } ]
+  } ],
+  "brokerloggers" : [ {
+    "id" : "5e0eed1a-7c47-40ee-a690-816dbb17ebce",
+    "name" : "logfile",
+    "type" : "File",
+    "fileName" : "${qpid.work_dir}${file.separator}log${file.separator}qpid.log",
+    "brokerloginclusionrules" : [ {
+      "id" : "d5780839-498b-420e-9da5-bf6e8be9a98a",
+      "name" : "Operational",
+      "type" : "NameAndLevel",
+      "level" : "INFO",
+      "loggerName" : "qpid.message.*"
+    }, {
+      "id" : "11213354-0a49-495a-8e15-d1adaee1018c",
+      "name" : "Qpid",
+      "type" : "NameAndLevel",
+      "level" : "INFO",
+      "loggerName" : "org.apache.qpid.*"
+    }, {
+      "id" : "9ca609d1-c8af-4b23-b95f-7ac0b12568e0",
+      "name" : "Root",
+      "type" : "NameAndLevel",
+      "level" : "WARN",
+      "loggerName" : "ROOT"
+    } ]
+  }, {
+    "id" : "e5deeb50-1a4e-4c55-8bca-a0ff92a17dec",
+    "name" : "memory",
+    "type" : "Memory",
+    "brokerloginclusionrules" : [ {
+      "id" : "f2605e75-fa51-428b-880c-a7f58fbd9a77",
+      "name" : "Operational",
+      "type" : "NameAndLevel",
+      "level" : "INFO",
+      "loggerName" : "qpid.message.*"
+    }, {
+      "id" : "cee59932-78db-4987-8e42-8cb765eb8ad3",
+      "name" : "Qpid",
+      "type" : "NameAndLevel",
+      "level" : "INFO",
+      "loggerName" : "org.apache.qpid.*"
+    }, {
+      "id" : "37eef2db-f1d1-4485-bb0b-cb64a5c89afd",
+      "name" : "Root",
+      "type" : "NameAndLevel",
+      "level" : "WARN",
+      "loggerName" : "ROOT"
+    } ]
+  } ],
+  "plugins" : [ {
+    "id" : "75bcee76-dffb-4497-9d4b-362141d71844",
+    "type" : "MANAGEMENT-HTTP",
+    "name" : "httpManagement"
+  }, {
+    "id" : "ebce85be-bf2a-4a65-9ddc-974408f14d43",
+    "type" : "MANAGEMENT-JMX",
+    "name" : "jmxManagement"
+  } ],
+  "ports" : [ {
+    "id" : "e85c7d26-7ffb-481a-89a5-530130f4e9c7",
+    "name" : "AMQP",
+    "type" : "AMQP",
+    "authenticationProvider" : "anonymous",
+    "port" : "${qpid.amqp_port}",
+    "protocols" : [ "AMQP_1_0" ],
+    "lastUpdatedBy" : "admin",
+    "lastUpdatedTime" : 1470414454812,
+    "createdBy" : null,
+    "createdTime" : 1470414234318,
+    "virtualhostaliases" : [ {
+      "id" : "6715dd4a-2c7e-4f36-927a-a6395890cbb0",
+      "name" : "defaultAlias",
+      "type" : "defaultAlias"
+    }, {
+      "id" : "ce0b5a02-2de4-4b91-99fc-558e185ff970",
+      "name" : "hostnameAlias",
+      "type" : "hostnameAlias"
+    }, {
+      "id" : "226255a2-8eba-4b1a-bd38-a55cf504ee27",
+      "name" : "nameAlias",
+      "type" : "nameAlias"
+    } ]
+  }, {
+    "id" : "b8a822e7-b62a-4ed1-a3e3-2a8191dc55af",
+    "name" : "HTTP",
+    "type" : "HTTP",
+    "authenticationProvider" : "anonymous",
+    "port" : "${qpid.http_port}",
+    "protocols" : [ "HTTP" ],
+    "lastUpdatedBy" : "admin",
+    "lastUpdatedTime" : 1470414471361,
+    "createdBy" : null,
+    "createdTime" : 1470414234336
+  } ],
+  "virtualhostnodes" : [ {
+    "id" : "9e4a0ba3-c8dc-4650-8e2b-17cda346920c",
+    "name" : "default",
+    "type" : "JSON",
+    "defaultVirtualHostNode" : "true",
+    "virtualHostInitialConfiguration" : "{}",
+    "lastUpdatedBy" : null,
+    "lastUpdatedTime" : 1470413952962,
+    "createdBy" : null,
+    "createdTime" : 1470413952506
+  } ]
+}
